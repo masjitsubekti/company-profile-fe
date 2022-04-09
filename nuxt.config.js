@@ -1,33 +1,44 @@
 export default {
+  // https://nuxtjs.org/docs/configuration-glossary/configuration-ssr/
+  ssr: true,
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'compro-sipt',
+    title: 'PT. SELARAS HANDASA INTI PERSADA',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo-ship.png' }],
     script: [
-      { src: '/assets/theme/js/jquery-3.4.1.min.js' },
-      { src: '/assets/theme/js/popper.min.js' },
-      { src: '/assets/theme/js/bootstrap.min.js' },
-      { src: '/assets/theme/js/bootstrap-select.min.js' },
-      { src: '/assets/theme/js/owl.carousel.min.js' },
-      { src: '/assets/theme/js/isotope.js' },
-      { src: '/assets/theme/js/waypoint.min.js' },
-      { src: '/assets/theme/js/jquery.counterup.min.js' },
-      { src: '/assets/theme/js/particles.min.js' },
-      { src: '/assets/theme/js/fancybox.js' },
-      { src: '/assets/theme/js/wow.js' },
-      { src: '/assets/theme/js/date-time-picker.js' },
-      { src: '/assets/theme/js/jquery.filer.min.js' },
-      { src: '/assets/theme/js/emojionearea.min.js' },
-      { src: '/assets/theme/js/smooth-scrolling.js' },
-      { src: '/assets/theme/js/tooltipster.bundle.min.js' },
-      { src: '/assets/theme/js/main.js' }
+      { src: 'js/jquery-3.4.1.min.js' },
+      { src: 'js/popper.min.js' },
+      { src: 'js/bootstrap.min.js' },
+      { src: 'js/bootstrap-select.min.js' },
+      { src: 'js/owl.carousel.min.js' },
+      { src: 'js/isotope.js' },
+      { src: 'js/waypoint.min.js' },
+      { src: 'js/jquery.counterup.min.js' },
+      { src: 'js/particles.min.js' },
+      { src: 'js/fancybox.js' },
+      { src: 'js/wow.js' },
+      { src: 'js/date-time-picker.js' },
+      { src: 'js/jquery.filer.min.js' },
+      { src: 'js/emojionearea.min.js' },
+      { src: 'js/smooth-scrolling.js' },
+      { src: 'js/tooltipster.bundle.min.js' },
+      { src: 'js/main.js' }
     ]
+  },
+
+  // https://nuxtjs.org/docs/configuration-glossary/configuration-loading
+  loading: {
+    color: 'DodgerBlue',
+    height: '10px',
+    // continuous: true,
+    // duration: 3000
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -36,7 +47,7 @@ export default {
     '@/assets/theme/css/font-awesome.min.css',
     '@/assets/theme/css/line-awesome.css',
     '@/assets/theme/css/animate.min.css',
-    // '@/assets/theme/css/owl.carousel.min.css',
+    '@/assets/theme/css/owl.carousel.min.css',
     '@/assets/theme/css/owl.theme.default.min.css',
     '@/assets/theme/css/bootstrap-select.min.css',
     '@/assets/theme/css/fancybox.css',

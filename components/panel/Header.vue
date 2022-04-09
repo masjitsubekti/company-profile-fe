@@ -17,17 +17,15 @@
               <div class="menu-wrapper">
                 <nav class="main-menu">
                   <ul>
-                    <li><a href="contact.html">Home</a></li>
+                    <li><nuxt-link to="/">Home</nuxt-link></li>
 
                     <li><nuxt-link to="/about">About Us</nuxt-link></li>
-
-                    <li><a href="contact.html">Contact</a></li>
 
                     <li><a href="contact.html">Project</a></li>
 
                     <li><a href="contact.html">Client</a></li>
 
-                    <li><a href="contact.html">News</a></li>
+                    <li><nuxt-link to="/blog">News</nuxt-link></li>
                   </ul><!-- end ul -->
                 </nav><!-- end main-menu -->
               </div><!-- end menu-wrapper -->

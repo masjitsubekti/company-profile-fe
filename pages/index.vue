@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SliderHome />
+    <SliderHome class="mb-5" />
     <ScopeOfWork />
     <ServiceProduct />
   </div>

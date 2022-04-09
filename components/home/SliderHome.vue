@@ -1,73 +1,60 @@
 <template>
   <section class="slider-area">
-    <div class="hero-slide owl-dot-and-nav">
-      <div class="single-slide-item slide-bg1">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section-heading">
-                <h2 class="section__title text-white">We Help You Learn <br> What You Love</h2>
-                <p class="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
-                  <br>industry's standard dummy text ever sinceprinting and typesetting industry.
-                </p>
-              </div>
-              <div class="btn-box d-flex align-items-center">
-                <a href="admission.html" class="theme-btn theme-btn-hover-light">let's join</a>
-                <a href="#" class="btn-text video-play-btn ml-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
-                  Watch Preview<i class="la la-play icon-btn ml-2"></i>
-                </a>
-              </div>
-            </div><!-- col-lg-12 -->
-          </div><!-- row -->
-        </div><!-- container -->
-      </div><!-- end single-slide-item -->
-      <div class="single-slide-item slide-bg2">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section-heading text-center">
-                <h2 class="section__title text-white">Join Aduca & Get <br> Your Free Courses!</h2>
-                <p class="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
-                  <br>industry's standard dummy text ever sinceprinting and typesetting industry.
-                </p>
-              </div>
-              <div class="btn-box d-flex align-items-center justify-content-center">
-                <a href="admission.html" class="theme-btn theme-btn-hover-light">get started</a>
-                <a href="#" class="btn-text video-play-btn ml-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
-                  Watch Preview<i class="la la-play icon-btn ml-2"></i>
-                </a>
-              </div>
-            </div><!-- col-lg-12 -->
-          </div><!-- row -->
-        </div><!-- container -->
-      </div><!-- end single-slide-item -->
-      <div class="single-slide-item slide-bg3">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section-heading text-right">
-                <h2 class="section__title text-white">Learn Anything, <br> Anytime, Anywhere</h2>
-                <p class="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
-                  <br>industry's standard dummy text ever sinceprinting and typesetting industry.
-                </p>
-              </div>
-              <div class="btn-box hero-btn-right d-flex align-items-center justify-content-end">
-                <a href="#" class="btn-text video-play-btn mr-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
-                  <i class="la la-play icon-btn mr-2"></i>Watch Preview
-                </a>
-                <a href="admission.html" class="theme-btn theme-btn-hover-light">get enrolled</a>
-              </div>
-            </div><!-- col-lg-12 -->
-          </div><!-- row -->
-        </div><!-- container -->
-      </div><!-- end single-slide-item -->
-    </div><!-- end hero-slide -->
+    <b-carousel id="carousel-1" v-model="slide" :interval="100" controls indicators background="#ababab" img-width="1024" img-height="480" style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
+      <!-- Text slides with image -->
+      <b-carousel-slide caption="First slide" text="Nulla vitae elit libero, a pharetra augue mollis interdum." img-src="https://picsum.photos/1024/480/?image=52"></b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+        <h1>Hello world!</h1>
+      </b-carousel-slide>
+
+      <!-- Slides with image only -->
+      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+
+      <!-- Slides with img slot -->
+      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+      <b-carousel-slide>
+        <template #img>
+          <img class="d-block img-fluid w-100" width="1024" height="480" src="https://picsum.photos/1024/480/?image=55" alt="image slot">
+        </template>
+      </b-carousel-slide>
+
+      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
+      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
+          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
+        </p>
+      </b-carousel-slide>
+    </b-carousel>
   </section>
 </template>
 
 <script>
+import {
+  BCarousel
+} from 'bootstrap-vue'
+
 export default {
-  name: 'SliderHome'
+  name: 'SliderHome',
+  components: {
+    BCarousel
+  },
+  data() {
+    return {
+      slide: 0,
+      sliding: null
+    }
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    }
+  }
 }
 </script>
 

@@ -8,8 +8,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'description', name: 'description', content: 'PT. SELARAS HANDASA INTI PERSADA is a national private company engaged in construction, particularly in the fields of Mechanical, Electrical, Electronic and Plumbing.' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo-ship.png' }],
     script: [

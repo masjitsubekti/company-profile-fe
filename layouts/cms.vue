@@ -2,11 +2,12 @@
   <div class="layout-wrapper">
     <SidebarCms />
     <HeaderCms />
-    <div class="layout-main">
-      aaaaaaaaaaa
-      <Nuxt />
+    <div class="layout-main" :class="$store.state.toggleMenuCms ? 'active' : ''" ref="layoutMain">
+      <div class="content">
+        <p @click="open()">aaaaaaaaaaa</p>
+        <Nuxt />
+      </div>
     </div>
-    goog
   </div>
 </template>
 
@@ -18,6 +19,14 @@ export default {
   components: {
     SidebarCms,
     HeaderCms
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    open() {
+      this.$store.dispatch('setToggleMenuCms', true)
+    }
   }
 }
 </script>

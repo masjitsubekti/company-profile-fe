@@ -1,8 +1,8 @@
 <template>
   <div>
-    <SliderHome class="mb-5" />
+    <SliderHome class="mb-5"/>
     <ScopeOfWork />
-    <ServiceProduct />
+    <!-- <ServiceProduct /> -->
   </div>
 </template>
 

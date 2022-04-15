@@ -1,7 +1,7 @@
 export default {
   // https://nuxtjs.org/docs/configuration-glossary/configuration-ssr/
-  ssr: true,
-  
+  ssr: false,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'PT. SELARAS HANDASA INTI PERSADA',
@@ -51,7 +51,8 @@ export default {
     '@/assets/theme/css/bootstrap-select.min.css',
     '@/assets/theme/css/fancybox.css',
     '@/assets/theme/css/tooltipster.bundle.css',
-    '@/assets/theme/css/style.css'
+    '@/assets/theme/css/style.css',
+    '@/assets/styles/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -74,6 +75,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://www.npmjs.com/package/@nuxtjs/moment
+    '@nuxtjs/moment',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -90,5 +93,9 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    analyze: {
+      analyzerMode: 'static'
+    }
+  },
 }

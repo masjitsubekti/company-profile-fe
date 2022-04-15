@@ -23,6 +23,7 @@
 import {
   BSidebar
 } from 'bootstrap-vue'
+import Cookies from 'js-cookie'
 
 export default {
   name: 'SidebarCms',
@@ -35,7 +36,8 @@ export default {
     }
   },
   mounted() {
-    console.log('mount', this.$store.state)
+    // console.log('Cookies', Cookies.get('SIPT'))
+    // console.log('mount', this.$store)
   },
   computed: {
     showPanel: {

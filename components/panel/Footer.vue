@@ -80,9 +80,9 @@
       <div class="copyright-content">
         <div class="row align-items-center">
           <div class="col-lg-10">
-            <p class="copy__desc">&copy; 2020 Aduca. All Rights Reserved. by <a href="https://themeforest.net/user/techydevs/portfolio">TechyDevs.</a></p>
+            <p class="copy__desc">&copy; {{$moment().format('YYYY')}} PT SHIPT</p>
           </div><!-- end col-lg-9 -->
-          <div class="col-lg-2">
+          <!-- <div class="col-lg-2">
             <div class="sort-ordering">
               <select class="sort-ordering-select">
                 <option value="1">English</option>
@@ -105,7 +105,7 @@
                 <option value="17">Hindi</option>
               </select>
             </div>
-          </div>
+          </div> -->
         </div><!-- end row -->
       </div><!-- end copyright-content -->
     </div><!-- end container -->
@@ -113,6 +113,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Footer'

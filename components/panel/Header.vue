@@ -6,7 +6,7 @@
           <div class="row align-items-center">
             <div class="col-lg-2">
               <div class="logo-box">
-                <a class="logo"><img src="~/assets/images/logo/logo-ship.png" alt="logo" style="width: 140px; height: 40px; object-fit: cover;"></a>
+                <NuxtLink class="logo" to="/"><img src="~/assets/images/logo/logo-ship.png" alt="logo" style="height: 40px; object-fit: cover;"></NuxtLink>
                 <div class="menu-toggler">
                   <i class="la la-bars"></i>
                   <i class="la la-times"></i>

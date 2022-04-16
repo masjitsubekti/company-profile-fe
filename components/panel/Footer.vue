@@ -4,19 +4,18 @@
       <div class="row">
         <div class="col-lg-3 column-td-half">
           <div class="footer-widget">
-            <a href="index.html">
-              <img src="images/logo2.png" alt="footer logo" class="footer__logo">
-            </a>
-            <ul class="list-items footer-address">
+            <NuxtLink class="logo" to="/">
+              <img src="~/assets/images/logo/logo-ship.png" alt="footer logo" class="footer__logo mb-4" style="height: 100px">
+            </NuxtLink>
+            <!-- <ul class="list-items footer-address">
               <li><a href="tel:+1631237884">+163 123 7884</a></li>
-              <li><a href="mailto:support@wbsite.com" class="mail">support@website.com</a></li>
-              <li>Melbourne, Australia, 105 South Park Avenue</li>
-            </ul>
+              <li><a href="mailto:konstruksimep.ship@gmail.com" class="mail">konstruksimep.ship@gmail.com</a></li>
+            </ul> -->
             <h3 class="widget-title font-size-17 mt-4">We are on</h3>
             <ul class="social-profile">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.instagram.com/ptshipt/"><i class="fa fa-instagram"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
             </ul>
@@ -24,33 +23,27 @@
         </div><!-- end col-lg-3 -->
         <div class="col-lg-3 column-td-half">
           <div class="footer-widget">
-            <h3 class="widget-title">Company</h3>
+            <h3 class="widget-title">Head Branch Office <br />Surabaya</h3>
             <span class="section-divider"></span>
-            <ul class="list-items">
-              <li><a href="#">about us</a></li>
-              <li><a href="#">contact us</a></li>
-              <li><a href="#">become a Teacher</a></li>
-              <li><a href="#">support</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">blog</a></li>
+            <ul class="list-items footer-address">
+              <li><a><i class="fa fa-map-marker mr-2" />Surabaya</a></li>
+              <li><a href="tel:03187856942"><i class="fa fa-phone mr-2" />(031)87856942</a></li>
+              <li><a href="mailto:konstruksimep.ship@gmail.com" class="mail"><i class="fa fa-envelope mr-2" />konstruksimep.ship@gmail.com</a></li>
             </ul>
           </div><!-- end footer-widget -->
         </div><!-- end col-lg-3 -->
         <div class="col-lg-3 column-td-half">
           <div class="footer-widget">
-            <h3 class="widget-title">Courses</h3>
+            <h3 class="widget-title">Head Branch Office <br />Bandung</h3>
             <span class="section-divider"></span>
-            <ul class="list-items">
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Hacking</a></li>
-              <li><a href="#">PHP Learning</a></li>
-              <li><a href="#">Spoken English</a></li>
-              <li><a href="#">Self-Driving Car</a></li>
-              <li><a href="#">Garbage Collectors</a></li>
+            <ul class="list-items footer-address">
+              <li><a><i class="fa fa-map-marker mr-2" />Bandung</a></li>
+              <li><a href="tel:02263743919"><i class="fa fa-phone mr-2" />(022)63743919</a></li>
+              <li><a href="mailto:konstruksimep.ship@gmail.com" class="mail"><i class="fa fa-envelope mr-2" />konstruksimep.ship@gmail.com</a></li>
             </ul>
           </div><!-- end footer-widget -->
         </div><!-- end col-lg-3 -->
-        <div class="col-lg-3 column-td-half">
+        <!-- <div class="col-lg-3 column-td-half">
           <div class="footer-widget">
             <h3 class="widget-title">Download App</h3>
             <span class="section-divider"></span>
@@ -74,8 +67,8 @@
                 </a>
               </li>
             </ul>
-          </div><!-- end footer-widget -->
-        </div><!-- end col-lg-3 -->
+          </div>
+        </div> -->
       </div><!-- end row -->
       <div class="copyright-content">
         <div class="row align-items-center">

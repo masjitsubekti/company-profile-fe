@@ -66,11 +66,99 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/theme/sass/partials/variables.scss';
+
 .container-slot-caraousel {
   top: 50%;
   min-height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .container-slot-caraousel {
+    min-height: 500px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container-slot-caraousel {
+    min-height: 350px !important;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    ;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container-slot-caraousel {
+    min-height: 200px !important;
+
+    h1 {
+      font-size: 1.5rem;
+      ;
+    }
+
+    h2 {
+      font-size: 1rem;
+      ;
+    }
+
+    h3 {
+      font-size: 0.75rem;
+    }
+
+    p {
+      font-size: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-slot-caraousel {
+    min-height: 0px !important;
+
+    h1 {
+      font-size: 1rem;
+      ;
+    }
+
+    h2 {
+      font-size: 1rem;
+      ;
+    }
+
+    h3 {
+      font-size: 0.75rem;
+    }
+
+    p {
+      font-size: 0.5rem;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      // white-space: nowrap;
+    }
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <header class="layout-topbar" :class="$store.state.toggleMenuCms ? 'active' : ''">
     <div class="flex items-center con-layout-topbar">
+      <p class="" @click="logout">logout</p>
       <!-- {{$store.state}} -->
       <!-- <Button v-html="$icon.svg.uploadOutlined" class="btn-upload-excel p-button-secondary md:hidden hidden lg:block" @click="showingModal()" />
       <Button v-html="$icon.svg.crossAkarIcons" class="btn-event-panel p-button-secondary p-button-outlined" v-if="$store.state.toggleMenu" @click="emitToggle(false)" />
@@ -21,3 +22,16 @@
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logoutAccount')
+      this.$router.push({
+        name: 'login'
+      })
+    }
+  }
+}
+</script>

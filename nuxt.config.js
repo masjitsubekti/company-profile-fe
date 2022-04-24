@@ -33,13 +33,16 @@ export default {
   },
 
   // https://nuxtjs.org/docs/configuration-glossary/configuration-loading
-  loading: {
-    color: 'DodgerBlue',
-    height: '10px',
-    // continuous: true,
-    // duration: 3000
-  },
+  // loading: {
+  //   color: 'DodgerBlue',
+  //   height: '10px',
+  //   // continuous: true,
+  //   // duration: 3000
+  // },
 
+  env: {
+    API_URL: 'http://localhost:8000/api/v1'
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/theme/css/bootstrap.min.css',
@@ -52,11 +55,18 @@ export default {
     '@/assets/theme/css/fancybox.css',
     '@/assets/theme/css/tooltipster.bundle.css',
     '@/assets/theme/css/style.css',
-    '@/assets/styles/scss/main.scss'
+    '@/assets/styles/scss/main.scss',
+    // '@/assets/styles/css/tailwind.css'
   ],
 
+  // router: {
+  //   middleware: ['authenticated'],
+  // },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/vee-validate.ts',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -65,6 +75,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    // '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -96,6 +107,15 @@ export default {
   build: {
     analyze: {
       analyzerMode: 'static'
-    }
+    },
+    transpile: [
+      'vee-validate/dist/rules'
+    ],
+    // postcss: {
+    //   plugins: {
+    //     tailwindcss: {},
+    //     autoprefixer: {},
+    //   },
+    // },
   },
 }

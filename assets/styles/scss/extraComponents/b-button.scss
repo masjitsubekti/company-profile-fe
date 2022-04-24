@@ -1,0 +1,15 @@
+@import '../variable.scss';
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $success;
+}
+
+.btn-primary:hover {
+  background-color: $primary;
+  border-color: $success;
+}
+
+.btn-primary:not(:disabled):not(.disabled) {
+  background-color: $primary;
+}

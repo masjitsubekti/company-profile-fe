@@ -23,7 +23,7 @@
         </div><!-- end col-lg-3 -->
         <div class="col-lg-3 column-td-half">
           <div class="footer-widget">
-            <h3 class="widget-title">Head Branch Office <br />Surabaya</h3>
+            <h3 class="widget-title">Head Branch <br />Surabaya</h3>
             <span class="section-divider"></span>
             <ul class="list-items footer-address">
               <li><a><i class="fa fa-map-marker mr-2" />Surabaya</a></li>

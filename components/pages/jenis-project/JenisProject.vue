@@ -52,7 +52,7 @@ import {
 import JenisProjectForm from '~/components/pages/jenis-project/JenisProjectForm.vue'
 
 export default {
-  name: 'Jenis Project',
+  name: 'JenisProject',
   components: {
     JenisProjectForm
   },

@@ -6,10 +6,10 @@
         <b-icon icon="list" aria-hidden="true" font-scale="1.5" v-if="!$store.state.toggleMenuCms"></b-icon>
       </b-button>
       <div class="d-flex align-items-center">
-        <p class="mr-1">Naming Og</p>
+        <p class="mr-1">{{$store.state.auth.dataUser.nama}}</p>
         <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret>
           <template #button-content>
-            <b-avatar size="md"></b-avatar>
+            <b-avatar size="md" :text="$store.state.auth.dataUser.nama.charAt(0)"></b-avatar>
           </template>
           <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
           <!-- <b-dropdown-item href="#">Another action</b-dropdown-item>

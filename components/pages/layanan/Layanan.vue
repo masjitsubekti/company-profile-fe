@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <h5 class="mr-3">
-              Client
+              Layanan
             </h5>
             <b-button class="btn-primary rounded " variant="primary" size="sm" @click="addNew()">
               Tambah
@@ -29,7 +29,7 @@
     </b-card>
     <b-modal size="lg" :title="titleModal" scrollable centered v-model="showModal" :no-close-on-backdrop="true">
       <b-container>
-        <ClientForm :dataForm="dataForm" ref="refJenisProjectForm" @reloadData="reloadData" />
+        <LayananForm :dataForm="dataForm" ref="refJenisProjectForm" @reloadData="reloadData" />
       </b-container>
       <template #modal-footer>
         <div class="d-flex w-100 justify-content-end">
@@ -47,14 +47,14 @@
 
 <script>
 import {
-  clientUseCase
+  layananUseCase
 } from '~/domain/usecase'
-import ClientForm from '~/components/pages/client/ClientForm.vue'
+import LayananForm from '~/components/pages/layanan/LayananForm.vue'
 
 export default {
-  name: 'Client',
+  name: 'Layanan',
   components: {
-    ClientForm
+    LayananForm
   },
   data() {
     return {
@@ -91,7 +91,7 @@ export default {
   methods: {
     getAll() {
       this.isBusy = true
-      clientUseCase.getAll().then((response) => {
+      layananUseCase.getAll().then((response) => {
         if (!response.error) {
           this.data = response.result.data
         } else {
@@ -120,7 +120,7 @@ export default {
       this.showModal = true
     },
     prosesDelete(val) {
-      clientUseCase.deleteData(val.id).then((response) => {
+      layananUseCase.deleteData(val.id).then((response) => {
         if (!response.error) {
           this.reloadData(response)
         } else {

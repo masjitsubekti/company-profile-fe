@@ -62,7 +62,8 @@ export default {
   },
   methods: {
     fetchDataUser() {
-      authUseCase.getDetailUser(this.$store.state.auth.token).then((response) => {
+      // console.log('yea', this.$store.getters['auth/getToken'])
+      authUseCase.getDetailUser(this.$store.getters['auth/getToken']).then((response) => {
         if (!response.error) {
           this.$store.dispatch('auth/setAuthDataUser', response.result.user)
           this.$store.dispatch('auth/setIsAuthAuthenticated', true)

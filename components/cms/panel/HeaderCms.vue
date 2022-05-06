@@ -42,6 +42,10 @@ import {
   BAvatar,
   BDropdown
 } from 'bootstrap-vue'
+import {
+  authUseCase
+} from '~/domain/usecase'
+
 export default {
   components: {
     BAvatar,
@@ -49,9 +53,13 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.dispatch('auth/logoutAccount')
-      this.$router.push({
-        name: 'login',
+      authUseCase.logoutProcess(this.$store.state.auth.token).then((response) => {
+        if (!response.error) {
+          this.$store.dispatch('auth/logoutAccount')
+          this.$router.push({
+            name: 'login',
+          })
+        }
       })
     },
     showHide() {

@@ -8,7 +8,8 @@ import {
   ToastPlugin,
   CardPlugin,
   PopoverPlugin,
-  ModalPlugin 
+  ModalPlugin,
+  FormTextareaPlugin
 } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
@@ -20,7 +21,8 @@ const components = { BootstrapVue,
   ToastPlugin,
   CardPlugin,
   PopoverPlugin,
-  ModalPlugin 
+  ModalPlugin,
+  FormTextareaPlugin
 }
 
 Object.entries(components).forEach(([name, component]) => {

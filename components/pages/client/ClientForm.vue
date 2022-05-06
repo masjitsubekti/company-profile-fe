@@ -2,10 +2,17 @@
   <div>
     <ValidationObserver ref="form">
       <form @submit.prevent="submit">
-        <div class="mb-5">
+        <div class="mb-3">
           <ValidationProvider name="Nama" rules="required" v-slot="{ errors }">
             <label for="name" class="text-body2">Nama</label>
             <b-form-input id="name" v-model="name" placeholder="Nama Jenis Project" class="input-primary rounded"></b-form-input>
+            <span class="text-error">{{ errors[0] }}</span>
+          </ValidationProvider>
+        </div>
+        <div class="mb-3">
+          <ValidationProvider name="Keterangan" rules="required" v-slot="{ errors }">
+            <label for="description" class="text-body2">Keterangan</label>
+            <b-form-textarea id="description" v-model="description" placeholder="Keterangan" class="input-primary rounded"></b-form-textarea>
             <span class="text-error">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
@@ -16,11 +23,11 @@
 
 <script>
 import {
-  jenisProjectUseCase
+  clientUseCase
 } from '~/domain/usecase'
 
 export default {
-  name: 'JenisProjectForm',
+  name: 'ClientForm',
   props: {
     dataForm: {
       default: () => null
@@ -30,7 +37,8 @@ export default {
   data() {
     return {
       id: null,
-      name: null
+      name: null,
+      description: null
     }
   },
   mounted() {
@@ -41,11 +49,13 @@ export default {
       if (this.dataForm) {
         this.id = this.dataForm.id
         this.name = this.dataForm.nama
+        this.description = this.dataForm.keterangan
       }
     },
     processSubmit() {
-      jenisProjectUseCase.submitData(this.id, {
-        nama: this.name
+      clientUseCase.submitData(this.id, {
+        nama: this.name,
+        keterangan: this.description
       }).then(async (response) => {
         if (!response.error) {
           this.$emit('reloadData', response)
@@ -62,7 +72,6 @@ export default {
       })
     },
     submit() {
-      // jenisProjectUseCase.submitData()
       this.$refs.form.validate().then((success) => {
         if (success) {
           this.processSubmit()

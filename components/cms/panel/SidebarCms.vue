@@ -44,17 +44,12 @@ export default {
       }]
     }
   },
-  mounted() {
-    // console.log('Cookies', Cookies.get('SIPT'))
-    // console.log('mount', this.$store)
-  },
   computed: {
     showPanel: {
       get() {
         return this.$store.state.toggleMenuCms
       },
       set(newValue) {
-        console.log('set', newValue)
         this.$store.dispatch('setToggleMenuCms', newValue)
       }
     }

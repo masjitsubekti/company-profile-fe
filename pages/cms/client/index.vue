@@ -1,15 +1,16 @@
 <template>
   <div>
-    <jenis-project />
+    <Client />
   </div>
 </template>
 
 <script>
-import JenisProject from '~/components/pages/jenis-project/JenisProject.vue'
+import Client from '~/components/pages/client/Client.vue'
+
 export default {
   layout: 'cms',
   components: {
-    JenisProject
+    Client
   }
 }
 </script>

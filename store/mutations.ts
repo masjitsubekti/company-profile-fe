@@ -1,6 +1,5 @@
 const mutations = {
   SET_TOGGLE_MENU_CMS: (state: any, toggle: boolean) => {
-    // console.log('toohl', toggle)
     state.toggleMenuCms = toggle
   },
   SET_WIDTH: (state: any, width: number) => {

@@ -12,7 +12,6 @@ enum remoteEnum {
 }
 
 const store = Store() as any
-console.log('guyss', store.state)
 class Remote implements IRemote {
   method: remoteEnum
   

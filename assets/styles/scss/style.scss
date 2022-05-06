@@ -16,6 +16,10 @@
   color: $primary;
 }
 
+.color-blue-grey {
+  color: $color-blue-grey;
+}
+
 .text-body2 {
   font-size: $body2;
 }
@@ -23,4 +27,8 @@
 .text-error {
   font-size: 0.75rem;
   color: $danger;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

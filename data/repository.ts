@@ -22,7 +22,6 @@ class Repository {
     const data = new Response()
     try {
       const fetch = await this.fetchData().run()
-      console.log('repository', fetch)
       const code = fetch.status
       const result = fetch.data
       if (code === 201) {
@@ -55,11 +54,11 @@ class Repository {
       }
       if (e.response.status === 400) {
         data.error = true
-        data.message = `${e.response.data.Header} ${e.response.data.Detail}`
+        data.message = `${e.response.data.message}`
         data.code = (e.response) ? e.request.status : 400
       } else if (e.response.status === 401) {
         data.error = true
-        data.message = `${e.response.data.Header} ${e.response.data.Detail}`
+        data.message = `${e.response.data.message}`
         data.code = (e.response) ? e.request.status : 401
       } else {
         data.error = true
@@ -84,7 +83,6 @@ class Repository {
   saveResultData(data: any): void {
     this.sourceDb.changeData(data)
     this.loadFromDB().run()
-    console.log('save result data', data)
   }
 
   getResult = async (haveLocal: boolean): Promise<Response> => {

@@ -13,3 +13,8 @@
 .btn-primary:not(:disabled):not(.disabled) {
   background-color: $primary;
 }
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: $primary;
+  border-color: $success;
+}

@@ -1,7 +1,21 @@
 <template>
   <header class="layout-topbar" :class="$store.state.toggleMenuCms ? 'active' : ''">
-    <div class="flex items-center con-layout-topbar">
-      <p class="" @click="logout">logout</p>
+    <div class="con-layout-topbar">
+      <b-button size="sm" @click="showHide()">
+        <b-icon icon="x" aria-hidden="true" font-scale="1.5" v-if="$store.state.toggleMenuCms"></b-icon>
+        <b-icon icon="list" aria-hidden="true" font-scale="1.5" v-if="!$store.state.toggleMenuCms"></b-icon>
+      </b-button>
+      <div class="d-flex align-items-center">
+        <p class="mr-1">Naming Og</p>
+        <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret>
+          <template #button-content>
+            <b-avatar size="md"></b-avatar>
+          </template>
+          <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
+          <!-- <b-dropdown-item href="#">Another action</b-dropdown-item>
+          <b-dropdown-item href="#">Something else here...</b-dropdown-item> -->
+        </b-dropdown>
+      </div>
       <!-- {{$store.state}} -->
       <!-- <Button v-html="$icon.svg.uploadOutlined" class="btn-upload-excel p-button-secondary md:hidden hidden lg:block" @click="showingModal()" />
       <Button v-html="$icon.svg.crossAkarIcons" class="btn-event-panel p-button-secondary p-button-outlined" v-if="$store.state.toggleMenu" @click="emitToggle(false)" />
@@ -24,14 +38,25 @@
 </template>
 
 <script>
+import {
+  BAvatar,
+  BDropdown
+} from 'bootstrap-vue'
 export default {
+  components: {
+    BAvatar,
+    BDropdown
+  },
   methods: {
     logout() {
       this.$store.dispatch('auth/logoutAccount')
       this.$router.push({
-        name: 'login'
+        name: 'login',
       })
-    }
-  }
+    },
+    showHide() {
+      this.$store.dispatch('setToggleMenuCms', !this.$store.state.toggleMenuCms)
+    },
+  },
 }
 </script>

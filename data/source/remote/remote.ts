@@ -27,8 +27,6 @@ class Remote implements IRemote {
     this.endPoint = endPoint
     this.header = header
     this.data = data
-    console.log('asasa', store.state.auth)
-
     if (store.state.auth.dateAuth) {
       this.header.authorization = `Bearer ${store.state.auth.token}`
       this.header.timeout = 5000

@@ -5,6 +5,6 @@
 <script>
 export default {
   layout: 'cms',
-  middleware: ['authenticated']
+  // middleware: ['authenticated']
 }
 </script>

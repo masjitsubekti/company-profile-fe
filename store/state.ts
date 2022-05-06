@@ -3,7 +3,7 @@ const device = {
   height: 0
 }
 const state = {
-  toggleMenuCms: false,
+  toggleMenuCms: true,
   device
 }
 

@@ -4,7 +4,6 @@
     <HeaderCms />
     <div class="layout-main" :class="$store.state.toggleMenuCms ? 'active' : ''" ref="layoutMain">
       <div class="content">
-        <p @click="open()">aaaaaaaaaaa</p>
         <Nuxt />
       </div>
     </div>
@@ -16,6 +15,7 @@ import SidebarCms from '@/components/cms/panel/SidebarCms.vue'
 import HeaderCms from '@/components/cms/panel/HeaderCms.vue'
 
 export default {
+  middleware: 'authenticated',
   components: {
     SidebarCms,
     HeaderCms

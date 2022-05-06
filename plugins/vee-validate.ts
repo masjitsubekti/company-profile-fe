@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { ValidationProvider, extend } from 'vee-validate';
+import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import {
   required,
   email,
@@ -25,3 +25,4 @@ extend('min', {
 
 // Register it globally
 Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver)

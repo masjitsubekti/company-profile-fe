@@ -13,6 +13,10 @@
 <script>
 import SidebarCms from '@/components/cms/panel/SidebarCms.vue'
 import HeaderCms from '@/components/cms/panel/HeaderCms.vue'
+import {
+  // mapGetters,
+  mapActions
+} from 'vuex'
 
 export default {
   middleware: 'authenticated',
@@ -24,9 +28,19 @@ export default {
     return {}
   },
   methods: {
-    open() {
-      this.$store.dispatch('setToggleMenuCms', true)
-    }
+    toggleMenu() {
+      this.setSlider(!this.sliderMenu)
+    },
+    ...mapActions({
+      setSlider: 'setToggleMenuCms'
+    }),
+  },
+  mounted() {
+    this.$store.dispatch('setWidth')
+    this.$store.dispatch('initResize')
+  },
+  onmounted() {
+    this.$store.dispatch('destroyResize')
   }
 }
 </script>

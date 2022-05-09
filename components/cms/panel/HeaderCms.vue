@@ -6,10 +6,12 @@
         <b-icon icon="list" aria-hidden="true" font-scale="1.5" v-if="!$store.state.toggleMenuCms"></b-icon>
       </b-button>
       <div class="d-flex align-items-center">
-        <p class="mr-1">{{$store.state.auth.dataUser.nama}}</p>
+        <p class="mr-1" v-if="$store.state.auth.dataUser">{{ $store.state.auth.dataUser.nama }}</p>
+        <p class="mr-1" v-else>Admin</p>
         <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret>
           <template #button-content>
-            <b-avatar size="md" :text="$store.state.auth.dataUser.nama.charAt(0)"></b-avatar>
+            <b-avatar size="md" :text="$store.state.auth.dataUser.nama.charAt(0)" v-if="$store.state.auth.dataUser"></b-avatar>
+            <b-avatar size="md" text="A" v-else></b-avatar>
           </template>
           <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
           <!-- <b-dropdown-item href="#">Another action</b-dropdown-item>
@@ -49,17 +51,16 @@ import {
 export default {
   components: {
     BAvatar,
-    BDropdown
+    BDropdown,
   },
   methods: {
     logout() {
-      authUseCase.logoutProcess(this.$store.state.auth.token).then((response) => {
-        if (!response.error) {
-          this.$store.dispatch('auth/logoutAccount')
-          this.$router.push({
-            name: 'login',
-          })
-        }
+      this.$store.dispatch('auth/logoutAccount').then(() => {
+        this.$router.push({
+          name: 'login',
+        })
+      }).catch((err) => {
+        console.log(err)
       })
     },
     showHide() {

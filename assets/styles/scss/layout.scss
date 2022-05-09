@@ -79,11 +79,13 @@
 }
 
 .layout-main.active {
+  transition: all 0.5s ease;
   margin-left: $width-leftmenu;
 }
 
 .left-panel {
   .b-sidebar {
+    transition: all 0.5s ease;
     width: $width-leftmenu;
     height: 100%;
     position: fixed;
@@ -91,20 +93,20 @@
     z-index: 2;
     box-shadow: 2px 0px 32px rgba(0, 0, 0, 0.08);
     overflow-y: auto;
-    transition: width 0.5s ease-in-out;
+    // transition: width 0.5s ease-in-out;
     .b-sidebar-body {
       scrollbar-color: #eceff1 white;
       scrollbar-width: thin;
     }
-    
+
     .b-sidebar-body::-webkit-scrollbar {
       width: 3px;
     }
-    
+
     .b-sidebar-body::-webkit-scrollbar-track {
       background: transparent;
     }
-    
+
     .b-sidebar-body::-webkit-scrollbar-thumb {
       // background: $color-blue-grey-lighten-3;
       border-radius: 6px;
@@ -112,7 +114,7 @@
         width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
       width: 6px;
     }
-    
+
     .b-sidebar-body::-webkit-scrollbar-thumb:hover {
       background: $color-blue-grey-lighten-2;
     }
@@ -161,34 +163,48 @@
       .body.active {
         // background-color: $color-orange-lighten-5;
       }
-
-      .item-menu {
-        .circle-icon {
-          color: #c4c4c4;
-          fill: #c4c4c4;
-        }
+    }
+    .item-menu {
+      
+      h6 {
+        color: $color-blue-grey-lighten-1;
       }
 
-      .item-menu.active {
-        h6 {
-          // color: $color-orange;
-        }
+      .icon {
+        color: $color-blue-grey-lighten-1;
+        // fill: $color-green-primary;
+      }
+      .circle-icon {
+        color: #c4c4c4;
+        fill: #c4c4c4;
+      }
+    }
 
-        .circle-icon {
-          // color: $color-orange;
-          // fill: $color-orange;
-        }
+    .item-menu.active {
+      // background-color: $color-green-secondary;
+
+      h6 {
+        color: $color-green-primary;
       }
 
-      .item-menu:hover {
-        h6 {
-          // color: $color-orange;
-        }
+      .circle-icon {
+        // color: $color-orange;
+        // fill: $color-orange;
+      }
+      .icon {
+        color: $color-green-primary;
+        // fill: $color-green-primary;
+      }
+    }
 
-        .circle-icon {
-          // color: $color-orange;
-          // fill: $color-orange;
-        }
+    .item-menu:hover {
+      h6 {
+        color: $color-green-primary;
+      }
+
+      .icon {
+        color: $color-green-primary;
+        // fill: $color-green-primary;
       }
     }
   }

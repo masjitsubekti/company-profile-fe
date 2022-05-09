@@ -1,3 +1,7 @@
+import {
+  authUseCase
+} from '~/domain/usecase'
+
 const actions = {
   setIsAuthAuthenticated: (vuexContext: any, isAuthen: boolean) => {
     vuexContext.commit('SET_IS_AUTHEN', isAuthen)
@@ -8,14 +12,22 @@ const actions = {
   setTokenAuth: (vuexContext: any, token: string) => {
     vuexContext.commit('SET_TOKEN_AUTHEN', token)
   },
-  setAuthDataUser: (vuexContext: any, data: string) => {
-    vuexContext.commit('SET_DATA_USER_AUTH', data)
+  setAuthDataUser: ({ commit }: any, data: string) => {
+    commit('SET_DATA_USER_AUTH', data)
   },
-  logoutAccount: ({ commit }: any) => {
-    commit('SET_IS_AUTHEN', false)
-    commit('SET_DATE_AUTHEN', null)
-    commit('SET_TOKEN_AUTHEN', null)
-    commit('SET_DATA_USER_AUTH', null)
+  logoutAccount: ({ commit, state, getters }: any) => {
+    console.log('what state', state)
+    console.log('what is getters', getters)
+    authUseCase.logoutProcess(state.token).then((response: any) => {
+      if (!response.error) {
+        commit('SET_IS_AUTHEN', false)
+        commit('SET_DATE_AUTHEN', null)
+        commit('SET_TOKEN_AUTHEN', null)
+        commit('SET_DATA_USER_AUTH', null)
+        console.log('nyaa', response)
+        
+      }
+    })
   }
 }
 

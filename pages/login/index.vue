@@ -63,10 +63,10 @@ export default {
   methods: {
     fetchDataUser() {
       // console.log('yea', this.$store.getters['auth/getToken'])
-      authUseCase.getDetailUser(this.$store.getters['auth/getToken']).then((response) => {
+      authUseCase.getDetailUser(this.$store.getters['auth/getToken']).then(async (response) => {
         if (!response.error) {
-          this.$store.dispatch('auth/setAuthDataUser', response.result.user)
-          this.$store.dispatch('auth/setIsAuthAuthenticated', true)
+          await this.$store.dispatch('auth/setAuthDataUser', response.result.user)
+          await this.$store.dispatch('auth/setIsAuthAuthenticated', true)
           this.$router.push({
             // name: 'cms-dashboard'
             path: '/cms/dashboard'

@@ -16,12 +16,5 @@ export default {
     Header,
     Footer
   },
-  mounted() {
-    this.$store.dispatch('setWidth')
-    this.$store.dispatch('initResize')
-  },
-  onmounted() {
-    this.store.dispatch('destroyResize')
-  }
 }
 </script>

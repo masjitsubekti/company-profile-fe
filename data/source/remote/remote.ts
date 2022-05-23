@@ -26,7 +26,7 @@ class Remote implements IRemote {
     this.endPoint = endPoint
     this.header = header
     this.data = data
-    if (store.state.auth.dateAuth) {
+    if (store.state.auth.isAuth) {
       this.header.authorization = `Bearer ${store.state.auth.token}`
       this.header.timeout = 5000
     }

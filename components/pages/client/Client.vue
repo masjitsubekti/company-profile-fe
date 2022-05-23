@@ -7,36 +7,92 @@
             <h5 class="mr-3">
               Client
             </h5>
-            <b-button class="btn-primary rounded " variant="primary" size="sm" @click="addNew()">
+            <b-button
+              class="btn-primary rounded "
+              variant="primary"
+              size="sm"
+              @click="addNew()">
               Tambah
             </b-button>
           </div>
-          <InputIconRightGrey placeholder="Cari Disini ..." @update:modelValue="(val) => searchInput = val" :canClick="true" @submitInput="searching()" />
         </div>
       </b-card-header>
       <div class="mx-3 my-2">
-        <b-table id="table-transition-example" :no-border-collapse="false" :items="data" :fields="fields" head-variant="light" sticky-header responsive :busy="isBusy" sort-icon-left>
-          <template #table-busy>
-            <SpinnerLoading />
+        <DxDataGrid
+          id="table-default-id"
+          class="table-default"
+          :column-auto-width="true"
+          :allow-column-reordering="true"
+          :show-column-lines="false"
+          :show-row-lines="true"
+          :show-borders="true"
+          :row-alternation-enabled="false"
+          :allow-column-resizing="false"
+          :word-wrap-enabled="true"
+          :data-source="data"
+          key-expr="id"
+          no-data-text="Tidak Ada Data">
+          <DxPaging :page-size="10" :enabled="true" />
+          <DxPager
+            :visible="true"
+            :allowed-page-sizes="[5, 10, 15, 20, 25]"
+            display-mode="full"
+            :show-page-size-selector="true"
+            :show-info="true"
+            :show-navigation-buttons="true" />
+          <DxColumn
+            data-field="nama"
+            caption="Nama"
+            :visible="true" />
+          <DxColumn
+            caption="Action"
+            :visible="true"
+            :min-width="100"
+            cell-template="actionTemplate"
+            alignment="left" />
+          <template #actionTemplate="{ data }">
+            <ListEditDel
+              :edit="true"
+              @edit="editData(data.data)"
+              :del="true"
+              @delete="deleteData(data.data)" />
           </template>
-          <template #cell(actions)="row">
-            <ListEditDel :edit="true" @edit="editData(row.item)" :del="true" @delete="deleteData(row.item)" />
-          </template>
-        </b-table>
+          <DxSearchPanel :visible="true" />
+        </DxDataGrid>
+        <DxLoadPanel
+          :close-on-outside-click="false"
+          :visible="isBusy"
+          :position="position" />
       </div>
       <b-card-footer footer-bg-variant="white" footer-border-variant="white">
       </b-card-footer>
     </b-card>
-    <b-modal size="lg" :title="titleModal" scrollable centered v-model="showModal" :no-close-on-backdrop="true">
+    <b-modal
+      size="lg"
+      :title="titleModal"
+      scrollable
+      centered
+      v-model="showModal"
+      :no-close-on-backdrop="true">
       <b-container>
-        <ClientForm :dataForm="dataForm" ref="refJenisProjectForm" @reloadData="reloadData" />
+        <ClientForm
+          :dataForm="dataForm"
+          ref="refJenisProjectForm"
+          @reloadData="reloadData" />
       </b-container>
       <template #modal-footer>
         <div class="d-flex w-100 justify-content-end">
-          <b-button variant="primary" class="btn-primary mr-2" size="sm" @click="submit()">
+          <b-button
+            variant="primary"
+            class="btn-primary mr-2"
+            size="sm"
+            @click="submit()">
             Simpan
           </b-button>
-          <b-button variant="secondary" size="sm" @click="showModal=false">
+          <b-button
+            variant="secondary"
+            size="sm"
+            @click="showModal=false">
             Kembali
           </b-button>
         </div>
@@ -65,6 +121,9 @@ export default {
       isBusy: false,
       searchInput: '',
       noCollapse: false,
+      position: {
+        of: '#table-default-id'
+      },
       fields: [{
           key: 'nama',
           label: 'Nama',

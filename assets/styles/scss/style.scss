@@ -1,4 +1,4 @@
-@import "variable.scss";
+@import 'variable.scss';
 
 .color-green-primary {
   color: $color-green-primary;
@@ -31,4 +31,27 @@
 
 .cursor-pointer {
   cursor: pointer;
+}
+.table-default {
+  .dx-datagrid-headers {
+    color: black !important;
+    font-weight: 600 !important;
+    background-color: #e9ecef !important;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+    border-bottom: none !important;
+  }
+}
+
+.table-project {
+  .dx-row.dx-header-row {
+    color: black !important;
+    font-weight: 600 !important;
+    background-color: #e9ecef !important;
+    // padding-top: 0.5rem;
+    // padding-bottom: 0.5rem;
+  }
 }

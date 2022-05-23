@@ -60,6 +60,9 @@ export default {
       showLoading: false
     }
   },
+  mounted() {
+    console.log('this sotore', this.$store.state)
+  },
   methods: {
     fetchDataUser() {
       // console.log('yea', this.$store.getters['auth/getToken'])
@@ -67,10 +70,11 @@ export default {
         if (!response.error) {
           await this.$store.dispatch('auth/setAuthDataUser', response.result.user)
           await this.$store.dispatch('auth/setIsAuthAuthenticated', true)
-          this.$router.push({
-            // name: 'cms-dashboard'
-            path: '/cms/dashboard'
-          })
+          window.location.href = '/cms/dashboard'
+          // this.$router.push({
+          //   // name: 'cms-dashboard'
+          //   path: '/cms/dashboard'
+          // })
         }
       })
     },

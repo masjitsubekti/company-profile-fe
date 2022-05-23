@@ -56,6 +56,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('auth/logoutAccount').then(() => {
+        localStorage.removeItem('SIPT')
         this.$router.push({
           name: 'login',
         })

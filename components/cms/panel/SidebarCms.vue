@@ -5,17 +5,17 @@
       no-header
       shadow
       :no-close-on-route-change="true"
-      v-model="showPanel"
-    >
+      v-model="showPanel">
       <div class="list-menu">
         <div class="px-3 py-2 mb-3">
           <div class="header d-flex justify-content-center align-items-center">
-            <img
-              src="~/assets/images/logo/logo-ship.png"
-              alt="logo"
-              style="height: 50px; object-fit: cover"
-            />
-            <!-- <b-icon icon="x" style="font-size: 3rem;" font-scale="2" class="cursor-pointer" @click="hide()"></b-icon> -->
+            <img src="~/assets/images/logo/logo-ship.png" alt="logo" style="height: 50px; object-fit: cover" />
+            <!-- <b-icon
+   icon="x"
+   style="font-size: 3rem;"
+   font-scale="2"
+   class="cursor-pointer"
+   @click="hide()"></b-icon> -->
           </div>
         </div>
         <div>
@@ -25,14 +25,12 @@
               v-for="(data, i) in listMenus"
               :key="i"
               class="d-flex align-items-center py-2 item-menu cursor-pointer"
-              :class="activeClass(data)"
-            >
+              :class="activeClass(data)">
               <b-icon
                 :icon="data.icon"
                 aria-hidden="true"
-                font-scale="1.5"
-                class="mr-2 icon"
-              ></b-icon>
+                font-scale="1.3"
+                class="mr-2 icon"></b-icon>
               <h6>{{ data.title }}</h6>
             </NuxtLink>
           </div>
@@ -49,7 +47,9 @@
 </template>
 
 <script>
-import { BSidebar } from 'bootstrap-vue'
+import {
+  BSidebar
+} from 'bootstrap-vue'
 
 export default {
   name: 'SidebarCms',
@@ -59,11 +59,10 @@ export default {
   data() {
     return {
       // showPanel: true,
-      listMenus: [
-        {
+      listMenus: [{
           routeName: 'cms-dashboard',
           title: 'Dashboard',
-          icon: ''
+          icon: 'ui-checks-grid'
         },
         // {
         //   routeName: 'cms-layanan',
@@ -77,6 +76,12 @@ export default {
         {
           routeName: 'cms-jenis-project',
           title: 'Jenis Project',
+          icon: 'journal-check'
+        },
+        {
+          routeName: 'cms-project',
+          title: 'Project',
+          icon: 'folder2-open'
         },
       ],
     }
@@ -96,7 +101,7 @@ export default {
       this.$store.dispatch('setToggleMenuCms', false)
     },
     activeClass(val) {
-      if (val.routeName == this.$route.name) {
+      if (this.$route.name.includes(val.routeName)) {
         return 'active'
       }
       return ''

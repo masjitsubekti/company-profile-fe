@@ -9,7 +9,7 @@ export default (context: any) => {
 
       const checkHours = moment.duration(now.diff(dateLogin)).asHours()
 
-      if (checkHours <= 1) {
+      if (checkHours <= 8) {
         return true
       }
     }

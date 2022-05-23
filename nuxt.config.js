@@ -67,7 +67,8 @@ export default {
   plugins: [
     '~/plugins/vee-validate.ts',
     '~/plugins/bootstrap.ts',
-    '~/plugins/global-components.ts'
+    '~/plugins/global-components.ts',
+    '~/plugins/dev-extreme.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

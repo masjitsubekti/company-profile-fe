@@ -10,7 +10,11 @@ import {
   PopoverPlugin,
   ModalPlugin,
   FormTextareaPlugin,
-  LayoutPlugin
+  LayoutPlugin,
+  TooltipPlugin,
+  FormDatepickerPlugin,
+  FormCheckboxPlugin,
+  BreadcrumbPlugin
 } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
@@ -24,7 +28,11 @@ const components = { BootstrapVue,
   PopoverPlugin,
   ModalPlugin,
   FormTextareaPlugin,
-  LayoutPlugin
+  LayoutPlugin,
+  TooltipPlugin,
+  FormDatepickerPlugin,
+  FormCheckboxPlugin,
+  BreadcrumbPlugin
 }
 
 Object.entries(components).forEach(([name, component]) => {

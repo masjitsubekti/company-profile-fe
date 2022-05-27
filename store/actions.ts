@@ -17,6 +17,12 @@ const actions = {
   destroyResize: ({ commit }: any) => {
     window.removeEventListener('resize', () => ({}))
   },
+  showLoading: ({ commit }: any) => {
+    commit('SET_LOADING', true)
+  },
+  hideLoading: ({ commit }: any) => {
+    commit('SET_LOADING', false)
+  },
 }
 
 export default actions

@@ -41,7 +41,8 @@ export default {
   // },
 
   env: {
-    API_URL: 'http://localhost:8000/api/v1'
+    API_URL: 'http://localhost:8000/api/v1',
+    URL_BASE: 'http://localhost:8000/'
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -56,6 +57,7 @@ export default {
     '@/assets/theme/css/tooltipster.bundle.css',
     '@/assets/theme/css/style.css',
     '@/assets/styles/scss/main.scss',
+    // '@/assets/styles/css/base.css'
     // '@/assets/styles/css/tailwind.css'
   ],
 

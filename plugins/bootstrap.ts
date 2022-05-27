@@ -14,7 +14,8 @@ import {
   TooltipPlugin,
   FormDatepickerPlugin,
   FormCheckboxPlugin,
-  BreadcrumbPlugin
+  BreadcrumbPlugin,
+  SpinnerPlugin 
 } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
@@ -32,7 +33,8 @@ const components = { BootstrapVue,
   TooltipPlugin,
   FormDatepickerPlugin,
   FormCheckboxPlugin,
-  BreadcrumbPlugin
+  BreadcrumbPlugin,
+  SpinnerPlugin
 }
 
 Object.entries(components).forEach(([name, component]) => {

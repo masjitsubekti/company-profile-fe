@@ -3,7 +3,8 @@ import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import {
   required,
   email,
-  min
+  min,
+  max
 } from 'vee-validate/dist/rules';
 
 
@@ -21,6 +22,12 @@ extend('min', {
   ...min,
   params: ['length'],
   message: '{_field_} minimal mengandung {length} karakter'
+});
+
+extend('max', {
+  ...max,
+  params: ['length'],
+  message: '{_field_} maksimal mengandung {length} karakter'
 });
 
 // Register it globally

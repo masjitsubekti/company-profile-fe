@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { 
+import {
   BootstrapVue,
   IconsPlugin,
   BootstrapVueIcons,
@@ -15,11 +15,13 @@ import {
   FormDatepickerPlugin,
   FormCheckboxPlugin,
   BreadcrumbPlugin,
-  SpinnerPlugin 
+  SpinnerPlugin,
+  PaginationPlugin
 } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
-const components = { BootstrapVue,
+const components = {
+  BootstrapVue,
   IconsPlugin,
   BootstrapVueIcons,
   ButtonPlugin,
@@ -34,9 +36,10 @@ const components = { BootstrapVue,
   FormDatepickerPlugin,
   FormCheckboxPlugin,
   BreadcrumbPlugin,
-  SpinnerPlugin
+  SpinnerPlugin,
+  PaginationPlugin
 }
 
 Object.entries(components).forEach(([name, component]) => {
-    Vue.use(component)
+  Vue.use(component)
 })

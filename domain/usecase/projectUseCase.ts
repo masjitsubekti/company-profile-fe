@@ -1,9 +1,21 @@
 import { Response } from '@/domain/entities'
 import ICrud from '@/domain/usecase/iCrud'
 import Repository from '@/data/repository'
-import { fetchAllProject, editProject, addProject, deleteProject, fetchOneProject, addPhotoProject, deletePhotoProject } from '~/data/source/remote/api'
+import { fetchAllProject, editProject, addProject, deleteProject, fetchOneProject, addPhotoProject, deletePhotoProject, fetchAllGetProject, fetchOneGetProject, fetchGetProject } from '~/data/source/remote/api'
 
 class ProjectUseCase implements ICrud {
+  getNoAuthor(filter: any = ''): Promise<Response> {
+    return new Repository(fetchGetProject(filter), null).getResult(false)
+  }
+
+  getAllNoAuthor(): Promise<Response> {
+    return new Repository(fetchAllGetProject(), null).getResult(false)
+  }
+
+  getOneNoAuthor(id: any = ''): Promise<Response> {
+    return new Repository(fetchOneGetProject(id), null).getResult(false)
+  }
+  
   getAll(filter: any = ''): Promise<Response> {
     return new Repository(fetchAllProject(), null).getResult(false)
   }

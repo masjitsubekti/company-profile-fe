@@ -18,14 +18,26 @@ export default {
 <style lang="scss">
 .section-video {
   width: 100%;
-  /* background-color: #38BB0C; */
-  /* left: 0; */
 }
 
 .section-video video {
-  //   width: 100%;
-  //   height: 450px;
-  min-width: 100%;
+  width: 100%;
   min-height: 100%;
 }
+
+// @media screen and (max-width: 1300px) {
+
+// }
+
+// @media screen and (max-width: 900px) {
+
+// }
+
+// @media screen and (max-width: 650px) {
+
+// }
+
+// @media screen and (max-width: 450px) {
+// }
+
 </style>

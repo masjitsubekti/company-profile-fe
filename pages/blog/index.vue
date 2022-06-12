@@ -15,6 +15,42 @@ export default {
     BreadcumbBlog,
     ListNews
   },
+   head() {
+    return {
+      title: 'News | PT. SELARAS HANDASA INTI PERSADA',
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: 'you can view latest news about PT. SELARAS HANDASA INTI PERSADA'
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Projects | PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "you can view latest news about PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `${window.location.href}`
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "News | PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "you can view latest news about PT. SELARAS HANDASA INTI PERSADA",
+        },
+      ]
+    }
+  },
   data() {
     return {
       items: [{

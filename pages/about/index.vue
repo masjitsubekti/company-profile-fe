@@ -19,7 +19,7 @@ export default {
       meta: [{
           hid: 'description',
           name: 'description',
-          content: 'you can know all about PT. SELARAS HANDASA INTI PERSADA'
+          content: 'who we are PT. SELARAS HANDASA INTI PERSADA'
         },
         {
           hid: "og:title",
@@ -29,7 +29,7 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content: "you can know all about PT. SELARAS HANDASA INTI PERSADA",
+          content: "who we are PT. SELARAS HANDASA INTI PERSADA",
         },
         {
           hid: "og:url",
@@ -44,7 +44,7 @@ export default {
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: "you can know all about PT. SELARAS HANDASA INTI PERSADA",
+          content: "who we are PT. SELARAS HANDASA INTI PERSADA",
         },
       ]
     }

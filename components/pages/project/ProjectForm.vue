@@ -480,13 +480,21 @@ export default {
               this.tempFifthPhoto = result.project_image[4]
               this.tempSixthPhoto = result.project_image[5]
             }
+          } else {
+            this.$root.$bvToast.toast(`${res.message}`, {
+              title: 'Error',
+              toaster: 'b-toaster-bottom-center',
+              // solid: true,
+              autoHideDelay: 3000,
+              appendToast: true,
+              variant: 'danger'
+            })
           }
         }
         this.$store.dispatch('hideLoading')
       })
     },
     pushListImage(item, from) {
-      console.log('ok from ', from)
       let file = item
       if (from === 'firstPhoto') {
         this.firstPhoto.src = URL.createObjectURL(item)

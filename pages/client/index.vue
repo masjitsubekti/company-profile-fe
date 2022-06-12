@@ -80,6 +80,42 @@ export default {
   components: {
     BreadcumbBlog
   },
+  head() {
+    return {
+      title: 'Clients | PT. SELARAS HANDASA INTI PERSADA',
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: 'our clients PT. SELARAS HANDASA INTI PERSADA'
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Clients | PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "our clients PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `${window.location.href}`
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Clients | PT. SELARAS HANDASA INTI PERSADA",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "our clients PT. SELARAS HANDASA INTI PERSADA",
+        },
+      ]
+    }
+  },
   data() {
     return {
       itemsRoute: [{

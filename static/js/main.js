@@ -40,7 +40,6 @@ Author Email:   contact@techydevs.com
     $(document).ready( function () {
 
         $(document).on("click", ".menu-toggler", function () {
-            console.log('masuk clik')
             $(this).toggleClass('active');
             $(".main-menu").slideToggle(200);
         });

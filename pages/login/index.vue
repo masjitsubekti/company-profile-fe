@@ -86,7 +86,7 @@ export default {
           await this.$store.dispatch('auth/setTokenAuth', response.result.token)
           this.fetchDataUser()
         } else {
-          this.$bvToast.toast(`${response.message}`, {
+          this.$root.$bvToast.toast(`${response.message}`, {
             title: 'Error',
             toaster: 'b-toaster-bottom-center',
             // solid: true,

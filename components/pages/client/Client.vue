@@ -154,7 +154,7 @@ export default {
         if (!response.error) {
           this.data = response.result.data
         } else {
-          this.$bvToast.toast(`${response.message}`, {
+          this.$root.$bvToast.toast(`${response.message}`, {
             title: 'Error',
             toaster: 'b-toaster-bottom-center',
             // solid: true,
@@ -183,7 +183,7 @@ export default {
         if (!response.error) {
           this.reloadData(response)
         } else {
-          this.$bvToast.toast(`${response.message}`, {
+          this.$root.$bvToast.toast(`${response.message}`, {
             title: 'Error',
             toaster: 'b-toaster-bottom-center',
             // solid: true,
@@ -219,7 +219,7 @@ export default {
       this.$refs.refJenisProjectForm.submit()
     },
     reloadData(response) {
-      this.$bvToast.toast(`${response.result.message}`, {
+      this.$root.$bvToast.toast(`${response.result.message}`, {
         title: 'Sukses',
         toaster: 'b-toaster-bottom-center',
         // solid: true,

@@ -3756,9 +3756,11 @@ body {
 .team-item .team-img-box img {
   width: 100%;
   height: 100%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .team-item .team-img-box:after {
@@ -3768,7 +3770,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #233d63;
+  background-color: #05A027;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.3s;
@@ -3776,9 +3778,11 @@ body {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+
 }
 
 .team-item .social-profile {
@@ -6930,13 +6934,14 @@ body {
   visibility: hidden;
 }
 
-.fixed-nav .header-menu-content {
+.fixed-nav.header-menu-content {
   position: fixed;
   top: 0;
   width: 100%;
-  -webkit-box-shadow: 0 0 40px rgba(82, 85, 90, 0.1);
-  -moz-box-shadow: 0 0 40px rgba(82, 85, 90, 0.1);
-  box-shadow: 0 0 40px rgba(82, 85, 90, 0.1);
+  opacity: 0.5;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
 }
 
 /*===== owl-dot-and-nav =======*/
@@ -9746,8 +9751,8 @@ body {
 
 @media (max-width: 1600px) {
   .header-menu-area .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
 }
 
@@ -13979,7 +13984,7 @@ body {
   text-align: center;
   z-index: 2;
   color: #fff;
-  background-image: url("../images/breadcrumb-bg.jpg");
+  background-image: url("~/assets/images/construction-plans-with-yellow-helmet.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -13997,8 +14002,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #233d63;
-  opacity: 0.9;
+  background-color: #2f6126;
+  opacity: 0.2;
   z-index: -1;
 }
 

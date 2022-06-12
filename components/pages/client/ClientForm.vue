@@ -60,7 +60,7 @@ export default {
         if (!response.error) {
           this.$emit('reloadData', response)
         } else {
-          this.$bvToast.toast(`${response.message}`, {
+          this.$root.$bvToast.toast(`${response.message}`, {
             title: 'Error',
             toaster: 'b-toaster-bottom-center',
             // solid: true,

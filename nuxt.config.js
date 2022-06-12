@@ -9,6 +9,54 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'PT. SELARAS HANDASA INTI PERSADA is a national private company engaged in construction, particularly in the fields of Mechanical, Electrical, Electronic and Plumbing.' },
+      { hid: 'keywords', name: 'keywords', content: 'Mechanical Electrical and HVAC Contractors Indonesia, MEP Contractor Indonesia, kontraktor mekanikal dan elektrikal, kontraktor ME, mekanikal elektrikal, mechanical electrical indonesia, Plumbing, Electrical, Fire Fighting, HVAC System, Electronic, mechanical and electrical consultant, indonesia, surabaya, jakarta, bandung, buildings, hotel, apartments, shopping center, factory' },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "PT. SELARAS HANDASA INTI PERSADA",
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "PT. SELARAS HANDASA INTI PERSADA is a national private company engaged in construction, particularly in the fields of Mechanical, Electrical, Electronic and Plumbing.",
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website",
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://www.shiptpt.com"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "/logo-ship.png",
+      },
+      { property: "og:image:width", content: "740" },
+      { property: "og:image:height", content: "300" },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "PT. SELARAS HANDASA INTI PERSADA",
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary",
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: "PT. SELARAS HANDASA INTI PERSADA is a national private company engaged in construction, particularly in the fields of Mechanical, Electrical, Electronic and Plumbing.",
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "/logo-ship.png",
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo-ship.png' }],
     script: [
@@ -33,15 +81,16 @@ export default {
   },
 
   // https://nuxtjs.org/docs/configuration-glossary/configuration-loading
-  // loading: {
-  //   color: 'DodgerBlue',
-  //   height: '10px',
-  //   // continuous: true,
-  //   // duration: 3000
-  // },
+  loading: {
+    color: '#05A027',
+    // height: '10px',
+    // continuous: true,
+    // duration: 3000
+  },
 
   env: {
-    API_URL: 'http://localhost:8000/api/v1'
+    API_URL: 'http://localhost:8000/api/v1',
+    URL_BASE: 'http://localhost:8000/'
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -56,6 +105,8 @@ export default {
     '@/assets/theme/css/tooltipster.bundle.css',
     '@/assets/theme/css/style.css',
     '@/assets/styles/scss/main.scss',
+    'animate.css/animate.min.css'
+    // '@/assets/styles/css/base.css'
     // '@/assets/styles/css/tailwind.css'
   ],
 

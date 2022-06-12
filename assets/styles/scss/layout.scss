@@ -1,6 +1,7 @@
 @import 'variable';
 
 .layout-main {
+  transition: all 0.5s ease;
   background: $color-background;
 
   .content {

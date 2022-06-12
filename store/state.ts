@@ -4,7 +4,8 @@ const device = {
 }
 const state = {
   toggleMenuCms: true,
-  device
+  device,
+  loading: false
 }
 
 export default state

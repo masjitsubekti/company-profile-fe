@@ -11,7 +11,9 @@ const mutations = {
   SET_HEIGHT: (state: any, height: number) => {
     state.device.height = height
   },
-
+  SET_LOADING: (state: any, isShow: boolean) => {
+    state.loading = isShow
+  }
 }
 
 export default mutations

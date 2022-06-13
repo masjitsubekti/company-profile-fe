@@ -8993,7 +8993,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .card-image .play-button {
@@ -9089,7 +9089,7 @@ body {
 .card__img {
   display: block;
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .card__img img {
@@ -9148,16 +9148,17 @@ body {
   line-height: 28px;
 }
 
-.card__title a {
+.card__title p {
   color: #233d63;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
-.card__title a:hover {
+.card__title p:hover {
   color: #05A027;
 }
 

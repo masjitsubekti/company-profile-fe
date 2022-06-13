@@ -481,7 +481,7 @@ export default {
               this.tempSixthPhoto = result.project_image[5]
             }
           } else {
-            this.$root.$bvToast.toast(`${res.message}`, {
+            this.$root.$bvToast.toast(`${res.data.message}`, {
               title: 'Error',
               toaster: 'b-toaster-bottom-center',
               // solid: true,
@@ -489,6 +489,7 @@ export default {
               appendToast: true,
               variant: 'danger'
             })
+            this.$router.back()
           }
         }
         this.$store.dispatch('hideLoading')

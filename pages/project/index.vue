@@ -168,7 +168,6 @@ export default {
       })
     },
     changePage(prams) {
-      console.log('parmas', prams)
       this.$router.replace({
         name: 'project',
         query: {

@@ -5,7 +5,7 @@ import { fetchAllArtikel, editArtikel, addArtikel, deleteArtikel, fetchOneArtike
 
 class ArtikelUseCase implements ICrud {
   getAll(filter: any = ''): Promise<Response> {
-    return new Repository(fetchAllArtikel(), null).getResult(false)
+    return new Repository(fetchAllArtikel(filter), null).getResult(false)
   }
 
   async getDataForm(id: any): Promise<any> {

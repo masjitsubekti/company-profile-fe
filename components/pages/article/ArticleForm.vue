@@ -203,6 +203,16 @@ export default {
             this.tempFirstPhoto = `${result.image}`
             this.description = result.deskripsi
             this.isShow = this.publishOrArchive(result.is_publish)
+          } else {
+            this.$root.$bvToast.toast(`${res.data.message}`, {
+              title: 'Error',
+              toaster: 'b-toaster-bottom-center',
+              // solid: true,
+              autoHideDelay: 3000,
+              appendToast: true,
+              variant: 'danger'
+            })
+            this.$router.back()
           }
         }
         this.$store.dispatch('hideLoading')
@@ -283,7 +293,7 @@ export default {
 
 <style lang="scss">
 .img-priview-article {
-  width: 300px;
-  // height: 200px;
+  width: 370px;
+  height: 247px;
 }
 </style>

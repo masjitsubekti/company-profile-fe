@@ -383,7 +383,7 @@
 </template>
 
 <script>
-import VueUploadComponent from 'vue-upload-component'
+// import VueUploadComponent from 'vue-upload-component'
 import {
   jenisProjectUseCase,
   clientUseCase,
@@ -393,7 +393,7 @@ import {
 export default {
   name: 'ProjectForm',
   components: {
-    FileUpload: VueUploadComponent,
+    // FileUpload: VueUploadComponent,
   },
   data() {
     return {

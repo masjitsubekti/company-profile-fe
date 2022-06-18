@@ -1,6 +1,6 @@
 export default {
   // https://nuxtjs.org/docs/configuration-glossary/configuration-ssr/
-  ssr: false,
+  // ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -119,7 +119,8 @@ export default {
     '~/plugins/vee-validate.ts',
     '~/plugins/bootstrap.ts',
     '~/plugins/global-components.ts',
-    '~/plugins/dev-extreme.ts'
+    '~/plugins/dev-extreme.ts',
+    { src: '~/plugins/vuex-persist', mode: 'client', ssr: false}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

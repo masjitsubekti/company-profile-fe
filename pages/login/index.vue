@@ -64,17 +64,17 @@ export default {
     console.log('this sotore', this.$store.state)
   },
   methods: {
-    fetchDataUser() {
+    async fetchDataUser(token) {
+      const self = this;
       // console.log('yea', this.$store.getters['auth/getToken'])
-      authUseCase.getDetailUser(this.$store.getters['auth/getToken']).then(async (response) => {
+      authUseCase.getDetailUser(token).then(async (response) => {
         if (!response.error) {
           await this.$store.dispatch('auth/setAuthDataUser', response.result.user)
           await this.$store.dispatch('auth/setIsAuthAuthenticated', true)
-          window.location.href = '/cms/dashboard'
-          // this.$router.push({
-          //   // name: 'cms-dashboard'
-          //   path: '/cms/dashboard'
-          // })
+          // window.location.href = '/cms/dashboard'
+          setTimeout(() => {
+            self.$router.push('/cms/dashboard');
+          }, 2000);
         }
       })
     },
@@ -84,7 +84,7 @@ export default {
         if (!response.error) {
           await this.$store.dispatch('auth/setDateAuthAuthenticated', moment().format())
           await this.$store.dispatch('auth/setTokenAuth', response.result.token)
-          this.fetchDataUser()
+          await this.fetchDataUser(response.result.token);
         } else {
           this.$root.$bvToast.toast(`${response.message}`, {
             title: 'Error',

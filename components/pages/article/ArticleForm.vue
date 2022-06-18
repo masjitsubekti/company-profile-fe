@@ -148,7 +148,7 @@ import {
   DxMediaResizing,
   DxItem,
 } from 'devextreme-vue/html-editor'
-import VueUploadComponent from 'vue-upload-component'
+// import VueUploadComponent from 'vue-upload-component'
 import {
   isBoolean,
   isString
@@ -160,7 +160,7 @@ import {
 export default {
   name: 'ArticleForm',
   components: {
-    FileUpload: VueUploadComponent,
+    // FileUpload: VueUploadComponent,
     DxHtmlEditor,
     DxToolbar,
     DxMediaResizing,

@@ -14,13 +14,37 @@
         <h3 class="card__title mt-0">
           <p @click="toDetail()">{{data.title}}</p>
         </h3>
-        <!-- <div class="card-action">
+        <div class="card-action">
+          <!-- {{edit}} -->
           <ul class="card-duration d-flex align-items-center">
-            <li>By<a href="#" class="blog-admin-name">TechyDevs</a></li>
-            <li><span class="blog__panel-comment">4 Comments</span></li>
-            <li><span class="blog__panel-likes">130 Likes</span></li>
+            <li v-if="edit">
+              <b-button
+                size="sm"
+                v-b-tooltip.hover="'Edit'"
+                @click="$emit('edit', data)">
+                <b-icon icon="pencil-fill" aria-label="Edit"></b-icon>
+              </b-button>
+            </li>
+            <li v-if="detail">
+              <b-button
+                @click="$emit('detail', data)"
+                size="sm"
+                variant="success"
+                v-b-tooltip.hover="'Detail'">
+                <b-icon icon="eye-fill" aria-label="Detail"></b-icon>
+              </b-button>
+            </li>
+            <li v-if="del">
+              <b-button
+                @click="$emit('del', data)"
+                size="sm"
+                variant="danger"
+                v-b-tooltip.hover="'Hapus'">
+                <b-icon icon="trash-fill" aria-label="Detail"></b-icon>
+              </b-button>
+            </li>
           </ul>
-        </div> -->
+        </div>
       </div><!-- end card-content -->
     </div><!-- end card-item -->
   </div><!-- end col-lg-6 -->
@@ -34,6 +58,15 @@ export default {
   props: {
     data: {
       default: () => []
+    },
+    edit: {
+      default: () => false
+    },
+    del: {
+      default: () => false
+    },
+    detail: {
+      default: () => false
     }
   },
   emits: ['toDetail'],

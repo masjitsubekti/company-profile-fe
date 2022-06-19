@@ -3,81 +3,135 @@
     <section class="blog-grid section-padding">
       <div class="container">
         <div class="sidebar-widget">
-          <h3 class="widget-title">Search Form</h3>
+          <h3 class="widget-title">Search</h3>
           <span class="section-divider"></span>
           <div class="contact-form-action">
-            <form method="post">
-              <div class="form-group">
-                <input class="form-control" type="search" name="search" placeholder="Search here...">
-                <button type="button" class="search-icon"><span class="la la-search"></span></button>
-              </div>
-            </form>
+            <div class="form-group">
+              <input class="form-control" name="search" placeholder="Search here..." @keypress.enter="submitSearch(inputSearch)" v-model="inputSearch" />
+              <button type="button" class="search-icon">
+                <span class="la la-search" @click="submitSearch(inputSearch)"></span>
+              </button>
+            </div>
           </div>
-        </div><!-- end sidebar-widget -->
+        </div>
+        <!-- end sidebar-widget -->
         <div class="row">
           <div class="col-lg-12">
             <div class="blog-left-sidebar">
               <div class="row">
-                <div class="col-lg-4 column-td-half" v-for="data in 8" :key="data">
-                  <div class="card-item blog-card">
-                    <div class="card-image">
-                      <a href="blog-single.html" class="card__img"><img src="~/assets/theme/images/img9.jpg" alt=""></a>
-                      <div class="card-badge">
-                        <span class="badge-label">24 Jan</span>
-                      </div>
-                    </div><!-- end card-image -->
-                    <div class="card-content">
-                      <h3 class="card__title mt-0">
-                        <a href="blog-single.html">It’s Great the Government is Tightening Gambling</a>
-                      </h3>
-                      <div class="card-action">
-                        <ul class="card-duration d-flex align-items-center">
-                          <li>By<a href="#" class="blog-admin-name">TechyDevs</a></li>
-                          <li><span class="blog__panel-comment">4 Comments</span></li>
-                          <li><span class="blog__panel-likes">130 Likes</span></li>
-                        </ul>
-                      </div><!-- end card-action -->
-                    </div><!-- end card-content -->
-                  </div><!-- end card-item -->
-                </div><!-- end col-lg-6 -->
+                <!-- eslint-disable -->
+                <CardArticle
+                  v-for="(data, index) in dataSource"
+                  :key="index"
+                  :data="data"
+                  @toDetail="goToDetail"
+                  v-if="dataSource.length > 0" />
+                <h5 class="mx-auto mt-5 mb-5" v-else>Belum ada artikel</h5>
               </div>
             </div>
-          </div><!-- end col-lg-8 -->
-        </div><!-- end row -->
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-navigation-wrap mt-4 text-center">
-              <div class="page-navigation-inner d-inline-block">
-                <div class="page-navigation">
-                  <a href="#" class="page-go page-prev">
-                    <i class="la la-arrow-left"></i>
-                  </a>
-                  <ul class="page-navigation-nav">
-                    <li><a href="#" class="page-go-link">1</a></li>
-                    <li class="active"><a href="#" class="page-go-link">2</a></li>
-                    <li><a href="#" class="page-go-link">3</a></li>
-                    <li><a href="#" class="page-go-link">4</a></li>
-                    <li><a href="#" class="page-go-link">5</a></li>
-                  </ul>
-                  <a href="#" class="page-go page-next">
-                    <i class="la la-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- end page-navigation-wrap -->
-          </div><!-- end col-lg-12 -->
-        </div><!-- end row -->
-      </div><!-- end container -->
+          </div>
+          <!-- end col-lg-8 -->
+        </div>
+        <!-- end row -->
+        <div class="d-flex justify-content-center" v-if="dataSource.length > 0">
+          <b-pagination
+            class="pagination-primary"
+            v-model="currentPage"
+            @change="changePage"
+            pills
+            :total-rows="rows"
+            :per-page="perPage"></b-pagination>
+        </div>
+      </div>
+      <!-- end container -->
     </section>
   </div>
 </template>
 
 <script>
-export default {
+import CardArticle from '~/components/shared-components/card/CardArticle.vue'
+import {
+  artikelUseCase
+} from '~/domain/usecase'
 
+export default {
+  name: 'ListNews',
+  components: {
+    CardArticle,
+  },
+  data() {
+    return {
+      dataSource: [],
+      currentPage: 1,
+      rows: 0,
+      perPage: 6,
+      inputSearch: this.$route.query.q,
+    }
+  },
+  mounted() {
+    this.getDataArticle()
+  },
+  methods: {
+    getDataArticle() {
+      this.$store.dispatch('showLoading')
+      artikelUseCase.getNoAuthor(window.location.search).then((response) => {
+        // console.log('repsonse', response)
+        if (!response.error) {
+          this.dataSource = response.result.data
+          this.rows = response.result.meta.total
+        } else {
+          this.$root.$bvToast.toast(`${response.message}`, {
+            title: 'Error',
+            toaster: 'b-toaster-bottom-center',
+            // solid: true,
+            autoHideDelay: 3000,
+            appendToast: true,
+            variant: 'danger',
+          })
+        }
+        this.$store.dispatch('hideLoading')
+      })
+    },
+    changePage(prams) {
+      this.$router
+        .replace({
+          name: 'blog',
+          query: {
+            page: prams,
+            limit: this.$route.query.limit,
+          },
+        })
+        .then(() => {
+          this.getDataArticle()
+        })
+        .catch(() => {})
+    },
+    goToDetail(val) {
+      // console.log('det', val)
+      this.$router.push({
+        name: 'blog-detail-id',
+        params: {
+          id: val.id,
+        },
+      })
+    },
+    submitSearch(val) {
+      this.$router
+        .replace({
+          // name: 'blog',
+          query: {
+            page: this.$route.query.page,
+            limit: this.$route.query.limit,
+            q: val,
+          },
+        })
+        .then(() => {
+          this.getDataArticle()
+        })
+        .catch(() => {})
+    },
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

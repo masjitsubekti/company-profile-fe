@@ -8,14 +8,31 @@
 <script>
 import BreadcumbBlog from '~/components/shared-components/breadcumb/BreadcumbBlog.vue'
 import ListNews from '~/components/blog/ListNews.vue'
+import {
+  isEmpty
+} from 'lodash'
 
 export default {
   name: 'IndexBlog',
+  middleware({
+    redirect,
+    route
+  }) {
+    if (isEmpty(route.query)) {
+      return redirect({
+        name: 'blog',
+        query: {
+          page: 1,
+          limit: 6
+        }
+      })
+    }
+  },
   components: {
     BreadcumbBlog,
     ListNews
   },
-   head() {
+  head() {
     return {
       title: 'News | PT. SELARAS HANDASA INTI PERSADA',
       meta: [{
@@ -58,7 +75,7 @@ export default {
         to: {
           name: 'index'
         }
-      },{
+      }, {
         text: 'News'
       }]
     }

@@ -95,16 +95,40 @@ export default {
   head() {
     return {
       title: this.dataSource.nama,
-          meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: 'Home page description'
-          }
-        ]
-    }
-  },
-  async asyncData({
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: this.dataSource.nama
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: this.dataSource.nama,
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: this.dataSource.nama,
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: `${window.location.href}`
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: this.dataSource.nama,
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: this.dataSource.nama,
+      }
+    ]
+  }
+},
+async asyncData({
     params,
     store
   }) {
@@ -144,13 +168,13 @@ export default {
   },
   fetch() {},
   mounted() {
-    console.log('mounted', this.dataSource)
+    // console.log('mounted', this.dataSource)
     // this.getDetailProject()
     // this.setThumbsSwiper()
   },
   methods: {
     setThumbsSwiper(swipper) {
-      console.log('click thumbs', swipper)
+      // console.log('click thumbs', swipper)
       this.thumbsSwiper = swipper
     },
     // getDetailProject() {

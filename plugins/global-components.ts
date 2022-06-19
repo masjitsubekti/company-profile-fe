@@ -5,6 +5,9 @@ import ListEditDel from '~/components/shared-components/list/ListEditDel.vue'
 import vSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css'
 
+import moment from 'moment'
+moment.locale('id')
+
 Vue.component('v-select', vSelect)
 
 const components = { SpinnerLoading, InputIconRightGrey, ListEditDel }

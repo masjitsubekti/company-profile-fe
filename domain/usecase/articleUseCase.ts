@@ -1,11 +1,20 @@
 import { Response } from '@/domain/entities'
 import ICrud from '@/domain/usecase/iCrud'
 import Repository from '@/data/repository'
-import { fetchAllArtikel, editArtikel, addArtikel, deleteArtikel, fetchOneArtikel } from '~/data/source/remote/api'
+import { fetchAllArtikel, editArtikel, addArtikel, deleteArtikel, fetchOneArtikel, fetchGetArtikel, fetchOneGetArtikel, editArtikelUpdate, fetchOneGetProject } from '~/data/source/remote/api'
 
 class ArtikelUseCase implements ICrud {
   getAll(filter: any = ''): Promise<Response> {
     return new Repository(fetchAllArtikel(filter), null).getResult(false)
+  }
+
+  getNoAuthor(filter: any = ''): Promise<Response> {
+    return new Repository(fetchGetArtikel(filter), null).getResult(false)
+  }
+
+  getOneNoAuthor(id: any): Promise<Response> {
+    // return new Repository(fetchOneGetProject(id), null).getResult(false)
+    return new Repository(fetchOneGetArtikel(id), null).getResult(false)
   }
 
   async getDataForm(id: any): Promise<any> {
@@ -24,8 +33,7 @@ class ArtikelUseCase implements ICrud {
 
   submitData(id: any, data: any): Promise<Response> {
     if (id) {
-      data.id = Number(id)
-      return new Repository(editArtikel(data.id, data), null).getResult(false)
+      return new Repository(editArtikelUpdate(data), null).getResult(false)
     } return new Repository(addArtikel(data), null).getResult(false)
   }
 

@@ -37,6 +37,12 @@
               v-for="(data, index) in dataSource"
               :key="index"
               :data="data"
+              :detail="true"
+              :del="true"
+              :edit="true"
+              @edit="editData"
+              @detail="goToDetail"
+              @del="deleteData"
               @toDetail="goToDetail" />
           </div>
         </div>
@@ -130,7 +136,7 @@ export default {
     goToDetail(val) {
       // console.log('det', val)
       this.$router.push({
-        name: 'cms-article-edit-id',
+        name: 'cms-article-detail-id',
         params: {
           id: val.id
         }
@@ -141,10 +147,62 @@ export default {
         name: 'cms-article-add'
       })
     },
+    editData(val) {
+      this.$router.push({
+        name: 'cms-article-edit-id',
+        params: {
+          id: val.id,
+        },
+      })
+    },
+    processDelete(val) {
+      artikelUseCase.deleteData(val.id).then((response) => {
+        if (!response.error) {
+          this.$root.$bvToast.toast(`${response.result.message}`, {
+            title: 'Sukses',
+            toaster: 'b-toaster-bottom-center',
+            // solid: true,
+            autoHideDelay: 3000,
+            appendToast: true,
+            variant: 'success'
+          })
+          this.getDataArticle()
+        } else {
+          this.$root.$bvToast.toast(`${response.message}`, {
+            title: 'Error',
+            toaster: 'b-toaster-bottom-center',
+            // solid: true,
+            autoHideDelay: 3000,
+            appendToast: true,
+            variant: 'danger'
+          })
+        }
+      })
+    },
+    deleteData(val) {
+      this.$bvModal.msgBoxConfirm('Apakah anda yakin ingin menghapusnya ?', {
+          title: 'Artikel',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'danger',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
+          // footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+        .then((res) => {
+          if (res) {
+            this.processDelete(val)
+          }
+        })
+        .catch(err => {
+          // An error occurred
+        })
+    },
     submitSearch(val) {
-      console.log('val =>', val)
       this.$router.replace({
-        name: 'cms-article',
+        // name: 'cms-article',
         query: {
           page: this.$route.query.page,
           limit: this.$route.query.limit,

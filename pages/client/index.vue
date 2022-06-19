@@ -176,4 +176,10 @@ export default {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+@media screen and (max-width: 768px) {
+  .container-table-client {
+    width: 80%;
+  }
+}
+
 </style>

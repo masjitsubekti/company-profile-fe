@@ -55,8 +55,10 @@ export default {
   },
   data() {
     return {
-      email: 'admin@gmail.com',
-      password: '123456',
+      // admin@gmail.com
+      // 123456
+      email: '',
+      password: '',
       showLoading: false
     }
   },

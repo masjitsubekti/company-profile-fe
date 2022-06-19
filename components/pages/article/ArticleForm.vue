@@ -251,6 +251,7 @@ export default {
       //   deskripsi: this.description
       // }
       const formData = new FormData()
+      formData.append('id', this.$route.params.id)
       formData.append('image', this.firstPhoto.image)
       formData.append('title', this.title)
       formData.append('is_publish', this.publishOrArchive(this.isShow))

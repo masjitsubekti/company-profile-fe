@@ -20,6 +20,10 @@
   color: $color-blue-grey;
 }
 
+.color-blue-grey-lighten-5 {
+  color: $color-blue-grey-lighten-5;
+}
+
 .text-body2 {
   font-size: $body2;
 }
@@ -92,5 +96,38 @@
     color: #fff;
     // background-color: #007bff;
     // border-color: #007bff;
+  }
+}
+
+.article-detail {
+  .header-title {
+    color: black;
+    font-size: 39px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .date-upload {
+    color: #777777;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .img-poster {
+    text-align: center;
+
+    img {
+      padding: 30px 0;
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+      transition-delay: .1s;
+      transition-timing-function: ease-in-out;
+      transition-duration: .7s;
+      transition-property: all;
+    }
+  }
+  .deskripsi {
+    color: #777777;
   }
 }

@@ -6938,7 +6938,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.5;
+  /* opacity: 0.5; */
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
@@ -9561,7 +9561,7 @@ body {
 
 .blog-card .card-duration li:after {
   position: absolute;
-  content: '.';
+  /* content: '.'; */
   bottom: 4px;
   right: -11px;
   color: #7f8897;

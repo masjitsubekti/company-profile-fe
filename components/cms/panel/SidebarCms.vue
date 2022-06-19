@@ -69,6 +69,11 @@ export default {
         //   title: 'Layanan'
         // },
         {
+          routeName: 'cms-users',
+          title: 'Users',
+          icon: 'person-lines-fill'
+        },
+        {
           routeName: 'cms-client',
           title: 'Client',
           icon: 'people-fill'
@@ -82,6 +87,11 @@ export default {
           routeName: 'cms-project',
           title: 'Project',
           icon: 'folder2-open'
+        },
+        {
+          routeName: 'cms-article',
+          title: 'Article',
+          icon: 'journals'
         },
       ],
     }

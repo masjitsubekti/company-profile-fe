@@ -12,7 +12,7 @@ const actions = {
   setTokenAuth: (vuexContext: any, token: string) => {
     vuexContext.commit('SET_TOKEN_AUTHEN', token)
   },
-  setAuthDataUser: ({ commit }: any, data: string) => {
+  setAuthDataUser: ({ commit }: any, data: any) => {
     commit('SET_DATA_USER_AUTH', data)
   },
   logoutAccount: ({ commit, state, getters }: any) => {

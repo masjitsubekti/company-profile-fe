@@ -8,23 +8,66 @@
         <ValidationObserver v-slot="{ handleSubmit }">
           <form @submit.prevent="handleSubmit(submit)">
             <div class="mb-3">
-              <ValidationProvider name="Email" rules="required|email" v-slot="{ errors }">
+              <ValidationProvider
+                name="Email"
+                rules="required|email"
+                v-slot="{ errors }">
                 <label for="email" class="text-body2">Email</label>
-                <b-form-input id="email" v-model="email" placeholder="Email" class="input-primary rounded"></b-form-input>
+                <b-form-input
+                  id="email"
+                  v-model="email"
+                  placeholder="Email"
+                  class="input-primary rounded"></b-form-input>
                 <span class="text-error">{{ errors[0] }}</span>
               </ValidationProvider>
             </div>
             <div class="mb-5">
-              <ValidationProvider name="Password" rules="required|min:6" v-slot="{ errors }">
+              <ValidationProvider
+                name="Password"
+                rules="required|min:6"
+                v-slot="{ errors }">
                 <label for="password" class="text-body2">Password</label>
-                <b-form-input id="password" v-model="password" placeholder="Password" class="input-primary rounded"></b-form-input>
+                <b-input-group>
+                  <template #append>
+                    <b-input-group-text>
+                      <b-icon
+                        class="cursor-pointer"
+                        icon="eye"
+                        aria-hidden="true"
+                        font-scale="1"
+                        @click="showPass = true"
+                        v-if="!showPass"></b-icon>
+                      <b-icon
+                        class="cursor-pointer"
+                        icon="eye-slash"
+                        aria-hidden="true"
+                        font-scale="1"
+                        @click="showPass = false"
+                        v-else></b-icon>
+                    </b-input-group-text>
+                  </template>
+                  <b-form-input
+                    id="password"
+                    :type="showPass ? 'text' : 'password'"
+                    v-model="password"
+                    placeholder="Password"
+                    class="input-primary rounded"></b-form-input>
+                </b-input-group>
                 <span class="text-error">{{ errors[0] }}</span>
               </ValidationProvider>
             </div>
             <div class="d-flex justify-content-center">
               <!-- <b-spinner variant="primary" label="Spinning"></b-spinner> -->
-              <b-button type="submit" class="btn-primary rounded d-flex align-items-center" style=" gap: 0.5rem; padding: 0.5rem 1.25rem 0.5rem 1.25rem; " variant="primary" :disabled="showLoading">
-                <b-spinner small variant="light" v-if="showLoading"></b-spinner>Masuk
+              <b-button
+                type="submit"
+                class="btn-primary rounded d-flex align-items-center"
+                style=" gap: 0.5rem; padding: 0.5rem 1.25rem 0.5rem 1.25rem; "
+                variant="primary"
+                :disabled="showLoading">
+                <b-spinner
+                  small
+                  variant="light"
+                  v-if="showLoading"></b-spinner>Masuk
               </b-button>
             </div>
           </form>
@@ -59,6 +102,7 @@ export default {
       // 123456
       email: '',
       password: '',
+      showPass: false,
       showLoading: false
     }
   },

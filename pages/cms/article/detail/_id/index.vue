@@ -1,11 +1,20 @@
 <template>
   <div>
     <b-breadcrumb :items="items"></b-breadcrumb>
+    <!-- {{dataForm}} -->
     <b-card
       class="rounded"
       border-variant="white"
       v-if="isShow">
-      <ArticleDetail :data="dataForm" />
+      <!-- <ArticleDetail :data="dataForm" /> -->
+      <div class="article-detail">
+        <h1 class="header-title">{{dataForm.title}}</h1>
+        <p class="date-upload">Tanggal&nbsp;:&nbsp;{{$moment(dataForm.created_at).format('DD MMMM YYYY')}}</p>
+        <div class="img-poster">
+          <img :src="dataForm.image" :alt="dataForm.title" />
+        </div>
+        <div class="deskripsi" v-html="dataForm.deskripsi"></div>
+      </div>
     </b-card>
   </div>
 </template>
@@ -23,7 +32,7 @@ export default {
   },
   data() {
     return {
-      dataForm: null,
+      dataForm: {},
       isShow: false,
       items: [{
           text: 'Artikel',
@@ -38,33 +47,35 @@ export default {
       ]
     }
   },
+  // created() {
+
+  //   },
   mounted() {
     this.getDetail()
   },
   methods: {
-    getDetail() {
+    async getDetail() {
       this.$store.dispatch('showLoading')
       this.isShow = false
-      artikelUseCase.getDataForm(this.$route.params.id).then((res) => {
-        if (res.data) {
-          if (!res.data.error) {
-            const result = res.data.result.data
-            this.dataForm = result
-            this.isShow = true
-          } else {
-            this.$root.$bvToast.toast(`${res.data.message}`, {
-              title: 'Error',
-              toaster: 'b-toaster-bottom-center',
-              // solid: true,
-              autoHideDelay: 3000,
-              appendToast: true,
-              variant: 'danger'
-            })
-            this.$router.back()
-          }
+      const res = await artikelUseCase.getDataForm(this.$route.params.id)
+      if (res.data) {
+        if (!res.data.error) {
+          const result = res.data.result.data
+          this.dataForm = result
+          this.isShow = true
+        } else {
+          this.$root.$bvToast.toast(`${res.data.message}`, {
+            title: 'Error',
+            toaster: 'b-toaster-bottom-center',
+            // solid: true,
+            autoHideDelay: 3000,
+            appendToast: true,
+            variant: 'danger'
+          })
+          this.$router.back()
         }
-        this.$store.dispatch('hideLoading')
-      })
+      }
+      this.$store.dispatch('hideLoading')
     }
   }
 }

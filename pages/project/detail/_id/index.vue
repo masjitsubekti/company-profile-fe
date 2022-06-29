@@ -37,7 +37,7 @@
           </span>
           <span class="text-description mb-1">
             <p class="title">Client :&nbsp;</p>
-            <p class="sub-title">{{dataSource.nama}}</p>
+            <p class="sub-title">{{dataSource.nama_client}}</p>
           </span>
           <span class="text-description mb-1">
             <p class="title">Location :&nbsp;</p>

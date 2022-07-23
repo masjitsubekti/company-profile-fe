@@ -1,9 +1,13 @@
 import { Response } from '@/domain/entities'
 import ICrud from '@/domain/usecase/iCrud'
 import Repository from '@/data/repository'
-import { fetchAllJenisProject, editJenisProject, addJenisProject, deleteJenisProject } from '~/data/source/remote/api'
+import { fetchAllJenisProject, editJenisProject, addJenisProject, deleteJenisProject, fetchAllGetJenisProject } from '~/data/source/remote/api'
 
 class JenisProjectUseCase implements ICrud {
+  getAllNoAuthor(): Promise<Response> {
+    return new Repository(fetchAllGetJenisProject(), null).getResult(false)
+  }
+
   getAll(filter: any = ''): Promise<Response> {
     return new Repository(fetchAllJenisProject(), null).getResult(false)
   }

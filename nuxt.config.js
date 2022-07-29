@@ -1,7 +1,7 @@
 export default {
   // https://nuxtjs.org/docs/configuration-glossary/configuration-ssr/
   ssr: false,
-
+  // target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'PT. SELARAS HANDASA INTI PERSADA',
@@ -89,8 +89,9 @@ export default {
   },
 
   env: {
-    API_URL: 'http://localhost:8000/api/v1',
-    URL_BASE: 'http://localhost:8000/'
+    API_URL: 'https://api.shiptpt.com/api/v1',
+    URL_BASE: 'https://api.shiptpt.com/',
+    VERSION: 'V.1.0.0(290722)'
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -129,8 +130,19 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/google-analytics'
     // '@nuxt/postcss8',
   ],
+
+  googleAnalytics: {
+    id: 'G-89BT82XRDJ', // Use as fallback if no runtime config is provided
+  },
+
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: 'G-89BT82XRDJ'
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -159,9 +171,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: {
-      analyzerMode: 'static'
-    },
+    // analyze: {
+    //   analyzerMode: 'static'
+    // },
     transpile: [
       'vee-validate/dist/rules'
     ],
